@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&family=JetBrains+Mono:wght@100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-canvas-bg: #F5F5F0;
+  --color-terracotta: #D4A373;
+  --color-terracotta-dark: #1A1A1A;
+  --color-sage: #8DA399;
+  --color-sage-dark: #4E635A;
+  --color-indigo-dark: #1A1A1A;
+  --color-parchment: #FDFCFB;
+}
+
+body {
+  background-color: #F5F5F0;
+  color: #1A1A1A;
+  font-family: var(--font-sans);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Custom Scrollbar styled minimalistically */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(26, 26, 26, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.15);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 26, 26, 0.3);
+}
+
+/* Custom styles for editorial cards and threads */
+.node-card {
+  box-shadow: 0 4px 20px -6px rgba(26, 26, 26, 0.05), 0 1px 2px rgba(26, 26, 26, 0.02);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  border-radius: 0px; /* Sharp editorial look */
+  border: 1px solid rgba(26, 26, 26, 0.1);
+  background-color: #FDFCFB;
+}
+
+.node-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 32px -12px rgba(26, 26, 26, 0.1), 0 1px 4px rgba(26, 26, 26, 0.04);
+  border-color: rgba(26, 26, 26, 0.3);
+}
+
+.thread-line-anim {
+  stroke-dasharray: 4 4;
+  animation: dash 45s linear infinite;
+  stroke: #1A1A1A;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Glassmorphism for floating UI elements using editorial white/parchment blur */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background-color: rgba(253, 252, 251, 0.9);
+  border: 1px solid rgba(26, 26, 26, 0.1);
+  border-radius: 0px; /* Sharp corners */
+}
+
+.pulse-glow-sage {
+  animation: glow-sage 2.5s infinite alternate;
+}
+
+.pulse-glow-terracotta {
+  animation: glow-terracotta 2.5s infinite alternate;
+}
+
+@keyframes glow-sage {
+  from {
+    box-shadow: 0 0 10px rgba(141, 163, 153, 0.1), inset 0 0 0 1px rgba(141, 163, 153, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(141, 163, 153, 0.35), inset 0 0 0 1px rgba(141, 163, 153, 0.6);
+  }
+}
+
+@keyframes glow-terracotta {
+  from {
+    box-shadow: 0 0 10px rgba(212, 163, 115, 0.1), inset 0 0 0 1px rgba(212, 163, 115, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(212, 163, 115, 0.35), inset 0 0 0 1px rgba(212, 163, 115, 0.6);
+  }
+}
+
+/* Scale animations */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Oráculo Têxtil",
+  "description": "Canvas interativo de worldbuilding têxtil para criação e organização de conceitos de moda, clima, vestuário histórico e materiais arqueológicos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
